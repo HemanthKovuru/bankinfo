@@ -95,7 +95,7 @@ const ListPage = ({ setItem }) => {
           onChange={(evt) => setQuery(evt.target.value)}
           className='search'
           type='text'
-          placeholder='search for your favourite character'
+          placeholder='Search...'
         />
       </div>
       {loading && <div className='loading'>Loading...</div>}
