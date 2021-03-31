@@ -1,0 +1,24 @@
+@import "./mixins";
+
+.page-box {
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  grid-gap: 1rem;
+  margin: 2rem;
+
+  @include responsive(mediumphone) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+    margin: 2rem;
+  }
+}
+
+.page-num {
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border: 1px solid #000;
+  margin: 0 1rem;
+}

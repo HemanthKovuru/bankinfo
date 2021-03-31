@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Route, Switch } from "react-router-dom";
+import "./scss/App.scss";
 
-function App() {
+import ListPage from "./pages/ListPage";
+import SingleListPage from "./pages/SingleListPage";
+import Favourite from "./pages/Favourite";
+
+const App = () => {
+  const [item, setItem] = useState();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Switch>
+      <Route exact path='/' component={() => <ListPage setItem={setItem} />} />
+      <Route
+        exact
+        path='/favourites'
+        component={() => <Favourite setItem={setItem} />}
+      />
+      <Route
+        exact
+        path='/banks/:id'
+        component={() => <SingleListPage item={item} />}
+      />
+    </Switch>
   );
-}
+};
 
 export default App;

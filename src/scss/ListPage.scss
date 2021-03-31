@@ -1,0 +1,89 @@
+@import "./mixins";
+
+.home {
+  margin: 5rem 0;
+}
+
+.search-box {
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  grid-gap: 3rem;
+  margin-bottom: 3rem;
+
+  @include responsive(tablet) {
+    margin: 0 3rem;
+  }
+  @include responsive(mediumphone) {
+    grid-template-columns: 1fr;
+  }
+}
+
+#category {
+  border: 1px solid #000;
+  border-radius: 40px;
+  padding: 1.2rem 1.5rem;
+  letter-spacing: 1px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.search {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  margin: auto 0;
+  border: 1px solid #000;
+  border-radius: 40px;
+  color: rgb(124, 124, 124);
+  letter-spacing: 1px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.list-box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 3rem;
+  margin-bottom: 3rem;
+
+  @include responsive(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 3rem;
+  }
+  @include responsive(mediumphone) {
+    grid-template-columns: 1fr;
+    margin: 3rem;
+  }
+  @include responsive(smallphone) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.error {
+  background-color: red;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1rem;
+  color: #fff;
+  width: 50%;
+  margin: 0 auto;
+  letter-spacing: 1px;
+}
+
+.heading {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.btn-favour {
+  border: 1px solid #000;
+  border-radius: 40px;
+  padding: 1.2rem 1.5rem;
+  letter-spacing: 1px;
+  font-size: 1.3rem;
+  display: inline-block;
+  cursor: pointer;
+}
