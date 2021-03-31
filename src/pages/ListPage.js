@@ -39,7 +39,6 @@ const ListPage = ({ setItem }) => {
 
   const handleChange = (evt) => {
     fetchList(evt.target.value);
-    console.log(evt.target.value);
   };
 
   // if (loading) {
@@ -50,9 +49,7 @@ const ListPage = ({ setItem }) => {
   let newList;
 
   if (list) {
-    console.log(list);
     newList = [...list];
-    console.log(newList);
     newList = list.filter((item) => {
       item.favourite = false;
       let name = item.bank_name.toLowerCase();
@@ -95,7 +92,7 @@ const ListPage = ({ setItem }) => {
           onChange={(evt) => setQuery(evt.target.value)}
           className='search'
           type='text'
-          placeholder='Search...'
+          placeholder='Search by bank name, branch, ifsc '
         />
       </div>
       {loading && <div className='loading'>Loading...</div>}
