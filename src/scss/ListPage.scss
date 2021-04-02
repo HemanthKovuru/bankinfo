@@ -87,4 +87,8 @@
   display: inline-block;
   cursor: pointer;
   margin-bottom: 1rem;
+
+  &:focus {
+    outline: none;
+  }
 }
