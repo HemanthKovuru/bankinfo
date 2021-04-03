@@ -97,6 +97,8 @@ const ListPage = ({ setItem }) => {
 
   return (
     <div className='home'>
+      <div className='heading'>Bank Branches</div>
+
       <button onClick={handleFavour} className='btn-favour'>
         Favourites
       </button>
