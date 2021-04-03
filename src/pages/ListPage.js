@@ -137,7 +137,7 @@ const ListPage = ({ setItem }) => {
       {!favour && (
         <>
           <div className='list-box'>
-            {query
+            {query && newList
               ? newList.map((item) => (
                   <ListCard setItem={setItem} key={item.ifsc} item={item} />
                 ))
