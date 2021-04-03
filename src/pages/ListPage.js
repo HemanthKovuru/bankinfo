@@ -93,25 +93,7 @@ const ListPage = ({ setItem }) => {
     setFavour(!favour);
   };
 
-  if (favour) {
-    const favourites = JSON.parse(localStorage.getItem("favour"));
-
-    return (
-      <div className='home'>
-        <div className='heading'>Bank Branches</div>
-        <button onClick={handleFavour} className='btn-favour'>
-          Bank Branches
-        </button>
-        <div className='heading'>Favourite Branches</div>
-        <div className='list-box'>
-          {favourites &&
-            favourites.map((item) => (
-              <ListCard setItem={setItem} key={item.ifsc} item={item} />
-            ))}
-        </div>
-      </div>
-    );
-  }
+  const favourites = JSON.parse(localStorage.getItem("favour"));
 
   return (
     <div className='home'>
@@ -135,20 +117,42 @@ const ListPage = ({ setItem }) => {
         />
       </div>
 
+      {favour && (
+        <div className='home'>
+          <button onClick={handleFavour} className='btn-favour'>
+            Bank Branches
+          </button>
+          <div className='heading'>Favourite Branches</div>
+          <div className='list-box'>
+            {favourites &&
+              favourites.map((item) => (
+                <ListCard setItem={setItem} key={item.ifsc} item={item} />
+              ))}
+          </div>
+        </div>
+      )}
+
       {loading && <div className='loading'>Loading...</div>}
 
-      <div className='list-box'>
-        {curList &&
-          curList.map((item) => (
-            <ListCard setItem={setItem} key={item.ifsc} item={item} />
-          ))}
-      </div>
-      {!query && (
-        <Pagination
-          perPage={perPage}
-          totalitems={list && list.length}
-          paginate={paginate}
-        />
+      {!favour && (
+        <>
+          <div className='list-box'>
+            {query
+              ? newList.map((item) => (
+                  <ListCard setItem={setItem} key={item.ifsc} item={item} />
+                ))
+              : curList.map((item) => (
+                  <ListCard setItem={setItem} key={item.ifsc} item={item} />
+                ))}
+          </div>
+          {!query && (
+            <Pagination
+              perPage={perPage}
+              totalitems={list && list.length}
+              paginate={paginate}
+            />
+          )}
+        </>
       )}
     </div>
   );
