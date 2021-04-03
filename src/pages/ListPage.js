@@ -145,14 +145,20 @@ const ListPage = ({ setItem }) => {
               : ""}
 
             {query &&
-              newList.map((item) => (
+              curList.map((item) => (
                 <ListCard setItem={setItem} key={item.ifsc} item={item} />
               ))}
           </div>
-          {!query && (
+          {!query ? (
             <Pagination
               perPage={perPage}
               totalitems={list && list.length}
+              paginate={paginate}
+            />
+          ) : (
+            <Pagination
+              perPage={perPage}
+              totalitems={newList && newList.length}
               paginate={paginate}
             />
           )}
